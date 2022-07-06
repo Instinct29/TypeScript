@@ -25,7 +25,7 @@ const NavBar = () => {
                 <a className="link" href="/Redux">Redux</a>
             </li>
             <li className="list-item-inline">
-                <a className="link" href="/Redux">Advance React Theory</a>
+                <a className="link" href="/advreact">Advance React Theory</a>
             </li>
         </ul>
     </nav>
