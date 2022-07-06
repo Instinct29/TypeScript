@@ -1,6 +1,14 @@
 import React from 'react'
 
-const Note = (props) => {
+type compProps = {
+  id:any,
+  title:any,
+  content:any,
+  deleteNote:any,
+  editNote:any
+}
+
+const Note = (props:compProps) => {
   var time = new Date().toLocaleTimeString();
   var date = new Date().toLocaleDateString();
 

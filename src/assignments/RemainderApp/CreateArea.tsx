@@ -1,12 +1,16 @@
 import React,{useState} from 'react'
 
-const CreateArea = (props) => {
+type compProps = {
+    addNote: any
+}
+
+const CreateArea = (props:compProps) => {
     const [note, setNote] = useState({
         title:"",
         content:""
     })
 
-const handleChange = (e) => {
+const handleChange:any = (e:React.ChangeEvent<HTMLInputElement>):void => {
     const {name, value} = e.target;
     setNote(
         (prevNote)=>{
@@ -19,7 +23,7 @@ const handleChange = (e) => {
 }
 
 
-const handleSubmit = (e) =>{
+const handleSubmit:any = (e:React.ChangeEvent<HTMLInputElement>):void =>{
 
     props.addNote(note)
     e.preventDefault();

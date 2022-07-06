@@ -7,17 +7,6 @@ import EditableRow from "./components/EditableRow";
 import NavBar from "../../components/navBar/NavBar";
 import {NewContacts} from './Interface'
 
-interface Types {
-  name: string;
-  email: string;
-  dob: string;
-  gender: string;
-  file: string;
-  education: string;
-  password: string;
-}
-
-
 
 
 const FormApp = () => {
@@ -42,33 +31,33 @@ const FormApp = () => {
     password: ""
   });
 
-  const [editContactId, setEditContactId] = useState(null);
+  const [editContactId, setEditContactId] = useState(nanoid());
 
   const handleAddFormChange:any = (event:React.ChangeEvent<HTMLInputElement>) => {
     // const fieldName:Types|null|string = event.target.getAttribute("name")   
     // const newFormData = { ...addFormData };
     // console.log(newFormData);
+    // const fieldValue = event.target.value;
     event.preventDefault();
-    const fieldValue = event.target.value;
-    setAddFormData({...addFormData,[event.target.name] : fieldValue});
+    setAddFormData({...addFormData,[event.target.name] : event.target.value});
   };
-  console.log(addFormData);
+  
 
   const handleEditFormChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     // const fieldName = event.target.getAttribute("name");
     // const newFormData = { ...editFormData };
     // newFormData[fieldName] = fieldValue;
     // setEditFormData(newFormData);
+    // const fieldValue = event.target.value;
     event.preventDefault();
-    const fieldValue = event.target.value;
-    setEditFormData({...editFormData,[event.target.name]:fieldValue})
+    setEditFormData({...editFormData,[event.target.name]: event.target.value});
   };
 
   const handleAddFormSubmit:any = (event:React.ChangeEvent<HTMLInputElement>):void => {
     event.preventDefault();
 
     const newContact:NewContacts = {
-      id: nanoid(),
+      id:  nanoid(),
       name: addFormData.name,
       email: addFormData.email,
       dob: addFormData.dob,
@@ -81,6 +70,7 @@ const FormApp = () => {
     const newContacts = [...contacts, newContact];
     setContacts(newContacts);
   };
+  // console.log(typeof(nanoid())) nanoid() returns a string
 
   const handleEditFormSubmit:any = (event:React.ChangeEvent<HTMLInputElement>):void => {
     event.preventDefault();
@@ -103,7 +93,7 @@ const FormApp = () => {
     newContacts[index] = editedContact;
 
     setContacts(newContacts);
-    setEditContactId(null);
+    setEditContactId(nanoid());
 
 
   };
@@ -127,7 +117,7 @@ const FormApp = () => {
   };
 
   const handleCancelClick = () => {
-    setEditContactId(null);
+    setEditContactId(nanoid());
   };
 
   const handleDeleteClick = (contactId:any) => {
@@ -251,3 +241,7 @@ const FormApp = () => {
 };
 
 export default FormApp;
+function typeOf(arg0: string): any {
+  throw new Error("Function not implemented.");
+}
+

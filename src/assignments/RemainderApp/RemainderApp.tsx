@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Note from './Note'
-import Header from './Header'
-import Footer from "./Footer.js"
+import Footer from "./Footer"
 import CreateArea from "./CreateArea"
 import NavBar from '../../components/navBar/NavBar'
 
@@ -9,38 +8,36 @@ const getLocalStorage = () =>{
   let list = localStorage.getItem('Lstorage');
   console.log("This is from List",list)
   if(list){
-    return JSON.parse(localStorage.getItem('Lstorage')) 
+    return JSON.parse(localStorage.getItem('Lstorage')!) 
   }else{
     return []
   }
 }
 
 
-
-
 function App() {
   const [notes, setNotes] = useState(getLocalStorage())
-  const addNote =(newNote)=>{
+  const addNote =(newNote: any)=>{
     setNotes(
-      prevNote => {
+      (prevNote: any) => {
         return ( [...prevNote,newNote])
  
       }
     )
   }
 
-  const deleteNote = (id) => {
+  const deleteNote = (id: any):void => {
     // console.log("delete note was triggered")
     setNotes(
-      prevNotes => {
-        return prevNotes.filter((noteItem, index) => {
+      (prevNotes: any) => {
+        return prevNotes.filter((noteItem:any, index: any) => {
           return index !==id;
         })
       }
     )
   }
 
-  const editNote = (id) => {
+  const editNote = (id:any) => {
     console.log("Edit is being Triggered",id)
   }
 
@@ -50,12 +47,14 @@ function App() {
   },[notes])
 
 
+
+
   return (
     <>
     <NavBar />
     <CreateArea addNote={addNote}/>
     {
-      notes.map((note,index)=>{
+      notes.map((note:any,index:any)=>{
         return <Note key={index} id={index} title = {note.title} content = {note.content} deleteNote={deleteNote} editNote={editNote} />
       })
     }
