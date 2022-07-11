@@ -14,7 +14,10 @@ import HOC from './assignments/AdvReactTheory/HOC/HOC';
 import RefsDoms from './assignments/AdvReactTheory/RefsDoms/RefsandDom';
 import StrictMode  from './assignments/AdvReactTheory/StrictMode/StrictMode';
 import TypeChecking from './assignments/AdvReactTheory/TypeChecking/TypeChecking';
-
+import DataTable from './assignments/ReduxApp/Components/DataTable';
+import SignupPage from './assignments/ReduxApp/Components/SignupPage';
+import EditSignupForm from './assignments/ReduxApp/Components/EditedSignupForm';
+import ReduxApp from './assignments/ReduxApp/ReduxApp';
 
 
 
@@ -37,7 +40,12 @@ function App() {
         <Route path='/hoc' element={<HOC />} />
         <Route path='/refsdom' element={<RefsDoms />} />
         <Route path='/strictmode' element={<StrictMode />} />
+        <Route path='/redux' element={<ReduxApp />} />
+        <Route path='/signup' element={<SignupPage />} />
+        <Route path='/datatable' element={<DataTable />} />
         <Route path='/typechecking' element={<TypeChecking />} />
+
+        
         </Routes>
       </Router>
 

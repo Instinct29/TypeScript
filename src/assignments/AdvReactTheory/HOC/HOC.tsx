@@ -14,7 +14,7 @@ const HOC = () => {
       <HigherOrderComponentRed component={Counter}/>
       <HigherOrderComponentBlue component={Counter} />
       <HigherOrderComponentGreen component={Counter} />
-      <Counter /> this one is a normal counter black 
+      <Counter /> this one is a normal counter black                       
 
 
     </div>

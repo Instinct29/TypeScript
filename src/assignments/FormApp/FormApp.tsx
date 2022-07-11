@@ -30,7 +30,7 @@ const FormApp = () => {
     education: "",
     password: ""
   });
-
+  
   const [editContactId, setEditContactId] = useState(nanoid());
 
   const handleAddFormChange:any = (event:React.ChangeEvent<HTMLInputElement>) => {

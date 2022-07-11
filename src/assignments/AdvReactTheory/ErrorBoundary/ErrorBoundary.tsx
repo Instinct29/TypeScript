@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, ErrorInfo, ReactNode } from 'react'
 import { render } from 'react-dom';
 
-interface ErrorBoundaryProps {}
-
-interface ErrorBoundaryState {
+interface Props {
+    children?: ReactNode;
+  }
+  
+  interface State {
     hasError: boolean;
+  }
 
-}
 
- class ErrorBoundary extends Component <ErrorBoundaryProps, ErrorBoundaryState> {
+ class ErrorBoundary extends Component <Props, State> {
 
-    constructor(props: ErrorBoundaryProps) {
+    constructor(props: Props) {
         super(props)
 
             this.state = {
-                hasError: false
-
-            
+                hasError: false  
         }
     }
 
@@ -25,16 +25,16 @@ interface ErrorBoundaryState {
             hasError: true
         }
     }
-
-
-    
-  render() {
+   
+     
+  public render() {
     if (this.state.hasError) {
-        return <h1>Something went wrong</h1>
+        return <h1>Something went wrong!- <span><h2>Check code for the understanding of this concept</h2></span></h1>
     }
-    // return this.state.children
+     return this.props.children
     
 }
  }
 export default ErrorBoundary
+
 

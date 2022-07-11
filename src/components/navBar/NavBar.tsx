@@ -22,7 +22,7 @@ const NavBar = () => {
                 <a className="link" href="/hooks">Hooks</a>
             </li>
             <li className="list-item-inline">
-                <a className="link" href="/Redux">Redux</a>
+                <a className="link" href="/signup">Redux</a>
             </li>
             <li className="list-item-inline">
                 <a className="link" href="/advreact">Advance React Theory</a>
